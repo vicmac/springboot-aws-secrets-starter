@@ -1,8 +1,8 @@
 #!/usr/local/bin/zsh
 
 echo 'Build it!'
-./mvnw clean -P production
-./mvnw -DskipTests package -P production
+./gradlew clean
+./gradlew bootJar
 
 echo 'Log In to AWS Docker Registry'
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin yourcontainerregistryhere

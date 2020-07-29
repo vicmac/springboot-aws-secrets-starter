@@ -1,7 +1,7 @@
 FROM openjdk-11-jdk-alpine
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 COPY scripts/unfoldjson.sh unfold.sh
 COPY scripts/docker-entrypoint.sh /usr/local/bin/
